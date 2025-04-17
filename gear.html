@@ -2,6 +2,7 @@
 <html lang="en" class="sl-theme-dark">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CS472 Group Project</title>
     <link
       rel="stylesheet"
@@ -14,25 +15,16 @@
     ></script>
     <script src="gear.js" type="module"></script>
   </head>
+
   <body>
+    <body>
     <main>
       <h1>Workout Gear</h1>
-      <div class="input-grid">
-        <sl-input
-          label="What are you searching?"
-          placeholder="Type something"
-        ></sl-input>
-      </div>
-
-      <sl-divider style="--color: tomato"></sl-divider>
+      
       <div id="card-container" class="container"></div>
       <sl-button id="open-drawer-btn" variant="primary">My list</sl-button>
     </main>
 
-    <sl-drawer
-      label="My list"
-      class="drawer-overview"
-      placement="end"
-    ></sl-drawer>
+    <sl-drawer label="My list" class="drawer-overview" placement="end"></sl-drawer>
   </body>
 </html>
