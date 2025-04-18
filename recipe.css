@@ -14,6 +14,7 @@ h1 {
   }
 
 .recipe-grid {
+    align-items: stretch;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -22,14 +23,15 @@ h1 {
   }
 
 .card-overview {
+    height: 100%;
     width: 260px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
   
+  
 .card-content {
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

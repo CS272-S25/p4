@@ -1,8 +1,9 @@
 const container = document.getElementById('card-container');
 const openButton = document.getElementById('open-drawer-btn');
 const drawer = document.querySelector('.drawer-overview');
-openButton.addEventListener('click', () => drawer.show());
-let mylist = [];
+
+// let mylist = []; add as my saved recipe
+
 const recipes = [
     {
       name: 'Baked Risotto',
@@ -42,7 +43,7 @@ const recipes = [
       <img slot="image" src="${recipe.img}" alt="${recipe.name}" />
       <div class="card-content">
         <a href="${recipe.link}" style="text-decoration: none; color: black;">
-          <strong style="color: #ccc; font-size: 16px;">${recipe.name}</strong>
+          <strong style="color: #ccc; font-size: 13px;">${recipe.name}</strong>
         </a>
         <div class="tag-group" style="margin-top: 6px;">
             ${recipe.tags.map(tag => `<span class="tag tag-${tag.toLowerCase()}">${tag}</span>`).join('')}
@@ -50,11 +51,9 @@ const recipes = [
         <div style="margin-top: 6px;">⏱ ${recipe.time} mins</div>
       </div>
       <div slot="footer">
-        <sl-button variant="primary" pill>Add</sl-button>
         <sl-rating value="4"></sl-rating>
       </div>
     `;
   
     container.appendChild(card);
   }
-  
