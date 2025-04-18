@@ -13,9 +13,13 @@ body {
     margin-bottom: 2rem;
   }
   
-  #typebox{
-    margin: 10px;
+  .input-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
   }
+  
   .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
