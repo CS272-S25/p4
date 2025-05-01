@@ -11,7 +11,8 @@ const workoutGearList = [
     price: "$299",
     rating: 4.8,
     description: "Space-saving adjustable dumbbells with weights from 5 to 52.5 lbs.",
-    image: "images/dumbbells.jpg"
+    image: "images/dumbbells.jpg",
+    alt: "Black adjustable dumbbells with multiple weight plates on a stand"
   },
   {
     id: "gear2",
@@ -20,7 +21,8 @@ const workoutGearList = [
     price: "$88",
     rating: 4.5,
     description: "High-grip, sweat-resistant yoga mat perfect for hot yoga.",
-    image: "images/yoga-mat.jpg"
+    image: "images/yoga-mat.jpg",
+    alt: "Dark gray yoga mat partially unrolled on a light background"
   },
   {
     id: "gear3",
@@ -29,7 +31,8 @@ const workoutGearList = [
     price: "$25",
     rating: 4.2,
     description: "Set of 5 resistance bands with varying levels for strength training.",
-    image: "images/resistance-bands.jpg"
+    image: "images/resistance-bands.jpg",
+    alt: "Color-coded resistance bands with handles, door anchor, and carrying pouch"
   },
   {
     id: "gear4",
@@ -38,7 +41,8 @@ const workoutGearList = [
     price: "$70",
     rating: 4.7,
     description: "Powder-coated cast iron kettlebell, ideal for swings and squats.",
-    image: "images/kettlebell.jpg"
+    image: "images/kettlebell.jpg",
+    alt: "Black 24kg cast iron kettlebell with green stripes on the handles"
   }
 ];
 
@@ -58,7 +62,7 @@ function addToGearList(item) {
 // Remove gear from list and update
 function renderGearDrawer() {
   drawer.innerHTML = `
-    <h2 style="margin: 1rem;">My Cart</h2>
+    <h1 style="margin: 1rem;">My Cart</h1>
     <div class="drawer-list" style="padding: 1rem;">
       ${
         gearList.length === 0
@@ -127,7 +131,7 @@ workoutGearList.forEach((gear) => {
 
   card.innerHTML = `
   <a href="product-details.html" class="product-link" data-id="${gear.id}">
-    <img slot="image" src="${gear.image}" alt="${gear.name}" />
+    <img slot="image" src="${gear.image}" alt="${gear.alt}" />
   </a>
     <div class="card-content">
       <strong>${gear.name}</strong>

@@ -39,7 +39,12 @@ To get a local copy up and running, follow these steps:
 - **Sign Up**: Create an account to personalize your experience.
 - **Browse Workouts**: Explore a variety of workouts tailored to different fitness levels.
 - **Explore Recipes**: Find meals that suit your dietary preferences and fitness goals.
-- **Gear Recommendations**: Discover equipment to enhance your workouts.
+- **Gear Recommendations**: VBrowse the Gear page to discover hand-picked workout equipment. Click any item to view detailed information including its brand, price, rating, and benefits on the Product Details page.
+- **Cart Drawer**: Add gear items to your cart using the blue “Add” button below each product card. In the slide-out drawer that appears, you can:
+  - **Increase Quantity**: Click the `+` button to add more of the same item.
+  - **Decrease Quantity**: Click the `−` button to remove one unit of the item. When quantity reaches 0, the item is automatically removed from the cart.
+  - **Delete Item**: Use the red “Delete” button to remove an item entirely from the cart.
+  - **View Total**: The cart dynamically calculates and displays the **total price** at the bottom.
 
 ## Contact
 
