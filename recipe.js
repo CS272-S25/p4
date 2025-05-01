@@ -2,6 +2,9 @@ const container = document.getElementById('card-container');
 const openButton = document.getElementById('open-drawer-btn');
 const drawer = document.querySelector('.drawer-overview');
 
+const isGithubPages = location.hostname.includes('github.io');
+const basePath = isGithubPages ? '/p4/' : './';
+
 let mylist = []; // add as my saved recipe
 const savedList = localStorage.getItem('myRecipeList');
 if (savedList) {
@@ -16,28 +19,28 @@ const recipes = [
       time: 50,
       tags: ['GF', 'HF', 'V'], // Gluten-Free, High-Fiber, Vegetarian
       img: 'https://www.skinnytaste.com/wp-content/uploads/2025/04/Baked-Risotto-with-Asparagus-and-Peas-10-260x390.jpg',
-      link: '/baked-risotto'
+      link: `${basePath}baked-risotto`
     },
     {
       name: 'Baked Cod',
       time: 35,
       tags: ['HP', 'LC', 'DF'], // High-Protein, Low-Carb, Dairy-Free
       img: 'https://www.skinnytaste.com/wp-content/uploads/2025/03/Baked-Cod-6-260x390.jpg',
-      link: '/baked-cod'
+      link: `${basePath}baked-cod`
     },
     {
       name: 'Chicken Fajitas',
       time: 40,
       tags: ['GF', 'KF'], // Gluten-Free, Kid-Friendly
       img: 'https://www.skinnytaste.com/wp-content/uploads/2013/05/Chicken-Fajitas-10-260x390.jpg',
-      link: '/chicken-fajitas'
+      link: `${basePath}chicken-fajitas`
     },
     {
       name: 'Mediterranean Octopus Salad',
       time: 50,
       tags: ['DF', 'GF', 'HP', 'LC', 'W'], // Dairy-Free, Gluten-Free, High-Protein, Low-Carb, Whole30
       img: 'https://www.skinnytaste.com/wp-content/uploads/2025/03/Mediterranean-Octopus-Salad-10-260x390.jpg',
-      link: '/octopus-salad'
+      link: `${basePath}octopus-salad`
     }
   ];
 
