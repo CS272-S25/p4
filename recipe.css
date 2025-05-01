@@ -55,6 +55,33 @@ h1 {
 .tag-df { background-color: #9b59b6; } /* Dairy-Free */
 .tag-kf { background-color: #f39c12; } /* Kid-Friendly */
 .tag-w  { background-color: #2ecc71; } /* Whole30 */
+
+.step-gallery{
+  display:flex; 
+  gap:24px; 
+  overflow-x:auto;
+}
+.step-gallery figure{
+  flex:0 0 220px; 
+  margin:0; 
+  position:relative; 
+  text-align:center;
+}
+.step-gallery img{
+  width:100%; 
+  height:auto; 
+  border-radius:6px;
+}
+.step-gallery figcaption{
+  position:absolute; 
+  bottom:0; 
+  left:0; 
+  right:0;
+  background:rgba(0,0,0,.55); 
+  color:#fff; 
+  font-size:.9rem;
+  padding:.4em 0;
+}
   
   
   
