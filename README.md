@@ -36,7 +36,6 @@ To get a local copy up and running, follow these steps:
 
 ## Usage
 
-- **Sign Up**: Create an account to personalize your experience.
 - **Browse Workouts**: Explore a variety of workouts tailored to different fitness levels.
 - **Explore Recipes**: Find meals that suit your dietary preferences and fitness goals.
 - **Gear Recommendations**: VBrowse the Gear page to discover hand-picked workout equipment. Click any item to view detailed information including its brand, price, rating, and benefits on the Product Details page.
