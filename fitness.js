@@ -4,12 +4,13 @@ const drawer = document.querySelector('.drawer-overview');
 let weight = document.getElementById("weight")
 let height = document.getElementById("height")
 const bmiOutput = document.getElementById('bmi-output');
+// Load saved workout list or start with empty array
 let mylist = [];
 const savedList = localStorage.getItem('myWorkoutList');
 if (savedList) {
   mylist = JSON.parse(savedList);
-  renderMyList();
 }
+renderMyList();
 
 let myRatings = {};
 
@@ -43,7 +44,13 @@ const workouts = [
     cal: 18
   }
 ];
-
+/**
+ * addToMylist(work)
+ * 
+ * Adds a workout object to "mylist" if not already present.
+ * Then saves the updated list to localStorage and re-renders the drawer.
+ * If the workout is already in the list, show a warning alert.
+ */
 function addToMylist(work) {
   if (!mylist.find(item => item.name === work.name)) {
     mylist.push(work);
@@ -55,10 +62,19 @@ function addToMylist(work) {
 }
 
 
+/**
+ * renderMyList()
+ * 
+ * Builds the HTML for the drawer that shows the current workout list.
+ * Calculates total calories and displays each workout with a delete button.
+ * Attaches event listeners for "Delete" and "Close" actions.
+ */
 function renderMyList() {
+  const totalCal = mylist.reduce((sum, w) => sum + w.cal, 0);
   drawer.innerHTML = `
     <h2 style="margin: 1rem;">My list</h2>
     <div class="drawer-list" style="padding: 1rem;">
+      <strong>Total Calories Burned: </strong> ${totalCal} cal </br>
       ${
         mylist.length === 0
           ? 'Your list is empty'
@@ -85,12 +101,18 @@ function renderMyList() {
     });
   });  
 }
-
+/**
+ * updateBMI()
+ *
+ * Reads height (cm) and weight (kg) input fields,
+ * calculates BMI, and updates the display text and color.
+ * Clears output if inputs are invalid.
+ */
 function updateBMI() {
 
   const h = parseFloat(height.value);
   const w = parseFloat(weight.value);
-
+  const inputAlert = document.getElementById('input-warning-alert');
   if (!isNaN(h) && !isNaN(w) && h > 0) {
     const bmi = (w / ((h / 100) ** 2)).toFixed(1);
     const status = getBMIStatus(bmi);
@@ -98,6 +120,7 @@ function updateBMI() {
     bmiOutput.style.color = getBMIColor(bmi);
   } else {
     bmiOutput.textContent = '';
+    
   }
 }
 
@@ -129,7 +152,7 @@ height.addEventListener('input', updateBMI);
 weight.addEventListener('input', updateBMI);
 updateBMI();
 
-
+// Render workout cards with image click and rating
 for (const work of workouts) {
   const card = document.createElement('sl-card');
   card.className = 'card-overview';
@@ -148,15 +171,19 @@ for (const work of workouts) {
       <sl-rating value="${ratingValue}" class="rating-${work.name}" max="5"></sl-rating>
     </div>
   `;
-
-
+  const imgEl = card.querySelector('img');
+  imgEl.style.cursor = 'pointer';
+  imgEl.addEventListener('click', () => {
+    window.location.href = `${work.name.toLowerCase()}.html`;
+  });
+  // Clicking image navigates to detail page
   const rating = card.querySelector(`.rating-${work.name}`);
   rating.addEventListener('sl-change', (event) => {
     const newRating = event.target.value;
     myRatings[work.name] = newRating;
     localStorage.setItem('myWorkoutRatings', JSON.stringify(myRatings));
   });
-
+  // Add button adds to list
   card.querySelector('sl-button[variant="primary"]').addEventListener('click', (event) => {
     event.stopPropagation();
     addToMylist(work);
@@ -165,6 +192,6 @@ for (const work of workouts) {
 
   container.appendChild(card);
 }
-
+// Open drawer when user clicks "My list" button
 openButton.addEventListener('click', () => drawer.show());
 
