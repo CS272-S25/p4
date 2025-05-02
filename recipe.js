@@ -1,6 +1,9 @@
 const container = document.getElementById('card-container');
 const openButton = document.getElementById('open-drawer-btn');
 const drawer = document.querySelector('.drawer-overview');
+const checkBtn = document.getElementById('nutrition-check-btn');
+const input = document.getElementById('nutrition-input');
+const resultDiv = document.getElementById('nutrition-result');
 
 const isGithubPages = location.hostname.includes('github.io');
 const basePath = isGithubPages ? '/p4/' : './';
@@ -128,4 +131,49 @@ for (const recipe of recipes) {
     }
   });  
 
-  openButton.addEventListener('click', () => drawer.show());
+  checkBtn.addEventListener('click', async () => {
+    const query = input.value.trim();
+    if (!query) {
+      resultDiv.innerHTML = '<p>Please enter a food description.</p>';
+      return;
+    }
+  
+    const appId = 'aa14076b';
+    const appKey = 'ea05620b4a6bd28b42aa1def4cd9afd0';
+  
+    try {
+      const res = await fetch('https://trackapi.nutritionix.com/v2/natural/nutrients', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-app-id': appId,
+          'x-app-key': appKey,
+          'x-remote-user-id': '0'
+        },
+        body: JSON.stringify({ query })
+      });
+  
+      const data = await res.json();
+      if (data.foods && data.foods.length > 0) {
+        const foodInfo = data.foods.map(food => `
+          <div style="margin-bottom: 1rem; border-bottom: 1px solid #444; padding-bottom: 0.5rem;">
+            <strong style="text-transform: capitalize;">${food.food_name}</strong><br/>
+            Calories: ${food.nf_calories} kcal<br/>
+            Protein: ${food.nf_protein} g<br/>
+            Carbs: ${food.nf_total_carbohydrate} g<br/>
+            Fat: ${food.nf_total_fat} g
+          </div>
+        `).join('');
+        resultDiv.innerHTML = foodInfo;
+      } else {
+        resultDiv.innerHTML = '<p>No result found.</p>';
+      }
+    } catch (err) {
+      console.error(err);
+      resultDiv.innerHTML = '<p>Error fetching nutrition info. Please try again later.</p>';
+    }
+  });
+
+openButton.addEventListener('click', () => drawer.show());
+
+

@@ -64,8 +64,8 @@ h2 {
 .step-gallery{
   display: flex;
   gap: 24px;
-  justify-content: center; /* ✅ 水平居中 */
-  flex-wrap: wrap;         /* ✅ 如果屏幕太小，会自动换行 */
+  justify-content: center; 
+  flex-wrap: wrap;
   padding: 20px 0;
 }
 .step-gallery figure{

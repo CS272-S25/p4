@@ -17,7 +17,14 @@
       <h2>Latest Healthy Recipes</h2>
       <!--Recipe grid-->
       <div id="card-container" class="recipe-grid"></div>
-      <!--Image Navigation Item-->
+      <!--Food calories counting-->
+      <section style="margin: 2rem auto; text-align: center;">
+        <h2>Check Nutrition Info</h2>
+        <input id="nutrition-input" type="text" placeholder="e.g., 1 banana and 1 cup milk"
+               style="width: 280px; padding: 0.6rem; border-radius: 8px;" />
+        <sl-button id="nutrition-check-btn" variant="success" style="margin-left: 12px;">Check</sl-button>
+        <div id="nutrition-result" style="margin-top: 1rem; text-align: left; max-width: 480px; margin-inline: auto;"></div>
+      </section>      
       <!--Saved Recipe-->
       <sl-button id="open-drawer-btn" variant="primary">Saved Recipe</sl-button>
     </main>
