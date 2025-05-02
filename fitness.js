@@ -13,37 +13,64 @@ if (savedList) {
 renderMyList();
 
 let myRatings = {};
-
 const savedRatings = localStorage.getItem('myWorkoutRatings');
 if (savedRatings) {
   myRatings = JSON.parse(savedRatings);
 }
-const workouts = [
-  {
-    name: 'Running',
-    time: 40,
-    img: 'fitnessImg/pexels-mastercowley-1199590.jpg',
-    cal: 300
-  },
-  {
-    name: 'Crunch',
-    time: 30,
-    img: 'fitnessImg/pexels-pixabay-416778.jpg',
-    cal: 150
-  },
-  {
-    name: 'Dumbbell',
-    time: 30,
-    img: 'fitnessImg/pexels-anush-1229356.jpg',
-    cal: 126
-  },
-  {
-    name: "Push-up",
-    time: 30,
-    img: "fitnessImg/pexels-keiji-yoshiki-31563-176782.jpg",
-    cal: 18
-  }
-];
+
+// obtain workouts from a hardcoded json file
+fetch('workouts.json')
+  .then(res => {
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return res.json();
+  })
+  .then(workouts => {
+    // Now render each workout card
+    workouts.forEach(work => {
+      const card = document.createElement('sl-card');
+      card.className = 'card-overview';
+      const ratingValue = myRatings[work.name] || 4;
+
+      card.innerHTML = `
+        <img slot="image" src="${work.img}" alt="${work.name}" />
+        <div class="card-content">
+          <strong>${work.name}</strong>
+          <small>${work.time}min</small>
+          <small>Calories: ${work.cal}</small>
+        </div>
+        <div slot="footer">
+          <sl-button variant="primary" pill>Add</sl-button>
+          <sl-rating value="${ratingValue}" max="5"></sl-rating>
+        </div>
+      `;
+
+      // Image click → details page
+      card.querySelector('img')
+          .addEventListener('click', () => {
+            window.location.href = `${work.name.toLowerCase()}.html`;
+          });
+
+      // Rating changes persist
+      card.querySelector('sl-rating')
+          .addEventListener('sl-change', e => {
+            myRatings[work.name] = e.target.value;
+            localStorage.setItem('myWorkoutRatings', JSON.stringify(myRatings));
+          });
+
+      // Add button
+      card.querySelector('sl-button')
+          .addEventListener('click', e => {
+            e.stopPropagation();
+            addToMylist(work);
+          });
+
+      container.appendChild(card);
+    });
+  })
+  .catch(err => {
+    console.error('Failed to fetch workouts:', err);
+    container.textContent = 'Unable to load workouts.';
+  });
 /**
  * addToMylist(work)
  * 
@@ -152,46 +179,6 @@ height.addEventListener('input', updateBMI);
 weight.addEventListener('input', updateBMI);
 updateBMI();
 
-// Render workout cards with image click and rating
-for (const work of workouts) {
-  const card = document.createElement('sl-card');
-  card.className = 'card-overview';
-
-  const ratingValue = myRatings[work.name] || 4;
-
-  card.innerHTML = `
-    <img slot="image" src="${work.img}" alt="${work.name}" />
-    <div class="card-content">
-      <strong>${work.name}</strong>
-      <small>${work.time}min</small>
-      <small>Calories: ${work.cal}</small>
-    </div>
-    <div slot="footer">
-      <sl-button variant="primary" pill>Add</sl-button>
-      <sl-rating value="${ratingValue}" class="rating-${work.name}" max="5"></sl-rating>
-    </div>
-  `;
-  const imgEl = card.querySelector('img');
-  imgEl.style.cursor = 'pointer';
-  imgEl.addEventListener('click', () => {
-    window.location.href = `${work.name.toLowerCase()}.html`;
-  });
-  // Clicking image navigates to detail page
-  const rating = card.querySelector(`.rating-${work.name}`);
-  rating.addEventListener('sl-change', (event) => {
-    const newRating = event.target.value;
-    myRatings[work.name] = newRating;
-    localStorage.setItem('myWorkoutRatings', JSON.stringify(myRatings));
-  });
-  // Add button adds to list
-  card.querySelector('sl-button[variant="primary"]').addEventListener('click', (event) => {
-    event.stopPropagation();
-    addToMylist(work);
-    console.log(mylist);
-  });
-
-  container.appendChild(card);
-}
 // Open drawer when user clicks "My list" button
 openButton.addEventListener('click', () => drawer.show());
 

@@ -1,3 +1,4 @@
+// Obtaining workout information from the localstorage
 const list = JSON.parse(localStorage.getItem('myWorkoutList') || '[]');
 const doneMap = JSON.parse(localStorage.getItem('workoutDone') || '{}');
 let totalTime = 0;
@@ -13,9 +14,9 @@ const avgCal = count ? Math.round(totalCal / count) : 0;
 
 document.getElementById('badge-count').textContent = count;
 document.getElementById('badge-time').textContent = totalTime + ' min';
-document.getElementById('badge-cal').textContent = totalCal + ' kcal';
-document.getElementById('badge-avg').textContent = avgCal + ' kcal';
-
+document.getElementById('badge-cal').textContent = totalCal + ' cal';
+document.getElementById('badge-avg').textContent = avgCal + ' cal';
+// Adding tables stats of each workout and checker box
 const tbody = document.getElementById('workout-list');
 list.forEach(w => {
     const tr = document.createElement('sl-tr');
@@ -28,6 +29,7 @@ list.forEach(w => {
     <sl-td>${w.time}</sl-td>
     <sl-td>${w.cal}</sl-td>
     `;
+    // Having actions that as the checker box is checked, the corresponding information is lined out
     const cb = tr.querySelector('sl-checkbox');
     cb.addEventListener('sl-change', e => {
         doneMap[w.name] = e.target.checked;
