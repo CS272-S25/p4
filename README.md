@@ -37,6 +37,13 @@ To get a local copy up and running, follow these steps:
 ## Usage
 
 - **Browse Workouts**: Explore a variety of workouts tailored to different fitness levels.
+   - BMI Calculator: Input height and weight to compute your Body Mass Index, with color‑coded status.
+   - Workout List: Browse workouts loaded dynamically from workouts.json (or a public API).
+   - Detail Pages: Click a workout image to view a dedicated detail page (e.g. running.html).
+   - My List Drawer: Add workouts to your personal list; view and delete saved items in a slide‑out panel.
+   - Daily Tracker: See a summary (daily.html) of sessions, total time, calories burned, and an itemized table.
+
+Star Ratings: Rate workouts on a 5‑star scale and persist your ratings across sessions.
 - **Explore Recipes**: Find meals that suit your dietary preferences and fitness goals.
 - **Gear Recommendations**: VBrowse the Gear page to discover hand-picked workout equipment. Click any item to view detailed information including its brand, price, rating, and benefits on the Product Details page.
 - **Cart Drawer**: Add gear items to your cart using the blue “Add” button below each product card. In the slide-out drawer that appears, you can:
