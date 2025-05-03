@@ -6,6 +6,7 @@ Welcome to the project by CS472 Group 4. This application is designed to help us
 
 - **Personalized Digital Workouts**: Tailored exercise routines to meet individual fitness goals.
 - **Easy-to-Follow Recipes**: Nutritious and delicious recipes to complement your fitness journey.
+- **Fitness Gears**: Fitness related equipments with price.
 - **User-Friendly Interface**: Navigate through workouts, recipes, and gear recommendations with ease.
 
 ## Technologies Used
@@ -38,6 +39,8 @@ To get a local copy up and running, follow these steps:
 
 - **Browse Workouts**: Explore a variety of workouts tailored to different fitness levels.
    - BMI Calculator: Input height and weight to compute your Body Mass Index, with color‑coded status.
+     ![image](https://github.com/user-attachments/assets/39fc6150-2076-4211-8ccd-09de78719774)
+
    - Workout List: Browse workouts loaded dynamically from workouts.json.
    - Detail Pages: Click a workout image to view a dedicated detail page (e.g. running.html).
       - Including youtube video instructions.
