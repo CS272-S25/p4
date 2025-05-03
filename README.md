@@ -35,7 +35,7 @@ To get a local copy up and running, follow these steps:
    ```
 5. Open [http://localhost:3000](http://localhost:3000) to view the app in your browser.
 
-## Usage
+## Website Overview
 
 - **Browse Workouts**: Explore a variety of workouts tailored to different fitness levels.
    - BMI Calculator: Input height and weight to compute your Body Mass Index, with color‑coded status.
@@ -53,14 +53,26 @@ To get a local copy up and running, follow these steps:
       - Synchronized with workouts added in the list.
         ![image](https://github.com/user-attachments/assets/261ce863-e012-4dee-8f7b-a35426f32ccc)
    - Star Ratings: Rate workouts on a 5‑star scale and persist your ratings across sessions.
-     ![image](https://github.com/user-attachments/assets/971251b9-89b3-4e8d-be8b-0bfb1df93679)
+     ![image](https://github.com/user-attachments/assets/df3a6e09-7ef4-461e-80e0-ba7dab3cd698)
+     
 - **Explore Recipes**: Find meals that suit your dietary preferences and fitness goals.
+  ![image](https://github.com/user-attachments/assets/b268636c-ce12-4f23-b448-c1af26bdcf9d)
+  - Single card with types of food.
+  - Instructions of cooking.
+  - Nutrition Information Checking.
+    
+    ![image](https://github.com/user-attachments/assets/04f607b9-8e9a-48c6-aaf6-c2cdff4ab655)
+    
 - **Gear Recommendations**: VBrowse the Gear page to discover hand-picked workout equipment. Click any item to view detailed information including its brand, price, rating, and benefits on the Product Details page.
+  ![image](https://github.com/user-attachments/assets/79b94a9f-1dfa-4947-9a4f-090b51ab371b)
+  ![image](https://github.com/user-attachments/assets/4455b71b-9a4a-40da-96ee-414580472797)
 - **Cart Drawer**: Add gear items to your cart using the blue “Add” button below each product card. In the slide-out drawer that appears, you can:
   - **Increase Quantity**: Click the `+` button to add more of the same item.
   - **Decrease Quantity**: Click the `−` button to remove one unit of the item. When quantity reaches 0, the item is automatically removed from the cart.
   - **Delete Item**: Use the red “Delete” button to remove an item entirely from the cart.
   - **View Total**: The cart dynamically calculates and displays the **total price** at the bottom.
+    ![image](https://github.com/user-attachments/assets/3c9cabac-a3ec-4cf6-8f2b-a71ed85a9d68)
+
 
 ## Contact
 
