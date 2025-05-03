@@ -42,13 +42,18 @@ To get a local copy up and running, follow these steps:
      ![image](https://github.com/user-attachments/assets/39fc6150-2076-4211-8ccd-09de78719774)
 
    - Workout List: Browse workouts loaded dynamically from workouts.json.
+     ![image](https://github.com/user-attachments/assets/6dcf0628-4c51-4d95-add6-7841457fe38e)
    - Detail Pages: Click a workout image to view a dedicated detail page (e.g. running.html).
       - Including youtube video instructions.
+        ![image](https://github.com/user-attachments/assets/8f2923ff-38c8-4f9c-b48f-14aeb141d3f9)
    - My List Drawer: Add workouts to your personal list; view and delete saved items in a slide‑out panel.
       - Synchronize with tracker.
+        ![image](https://github.com/user-attachments/assets/0199f88c-2f56-4473-909d-ce5c28fccea8)
    - Daily Tracker: See a summary (daily.html) of sessions, total time, calories burned, and an itemized table.
       - Synchronized with workouts added in the list.
-Star Ratings: Rate workouts on a 5‑star scale and persist your ratings across sessions.
+        ![image](https://github.com/user-attachments/assets/261ce863-e012-4dee-8f7b-a35426f32ccc)
+   - Star Ratings: Rate workouts on a 5‑star scale and persist your ratings across sessions.
+     ![image](https://github.com/user-attachments/assets/971251b9-89b3-4e8d-be8b-0bfb1df93679)
 - **Explore Recipes**: Find meals that suit your dietary preferences and fitness goals.
 - **Gear Recommendations**: VBrowse the Gear page to discover hand-picked workout equipment. Click any item to view detailed information including its brand, price, rating, and benefits on the Product Details page.
 - **Cart Drawer**: Add gear items to your cart using the blue “Add” button below each product card. In the slide-out drawer that appears, you can:
